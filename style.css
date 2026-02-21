@@ -1,3 +1,23 @@
+<script>
+async function getCryptoPrice() {
+  try {
+    const response = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd"
+    );
+    const data = await response.json();
+
+    document.getElementById("btcPrice").innerText = data.bitcoin.usd;
+    document.getElementById("ethPrice").innerText = data.ethereum.usd;
+
+  } catch (error) {
+    console.log("Error fetching data:", error);
+  }
+}
+
+getCryptoPrice();
+setInterval(getCryptoPrice, 15000); // 15 sec auto update
+</script>
+
 body{
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
