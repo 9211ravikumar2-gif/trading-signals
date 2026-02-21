@@ -1,0 +1,15 @@
+body{
+  font-family: Arial;
+  text-align:center;
+  background:#111;
+  color:white;
+}
+
+.signal{
+  padding:15px;
+  margin:15px;
+  border-radius:10px;
+}
+
+.buy{ background:green; }
+.sell{ background:red; }
