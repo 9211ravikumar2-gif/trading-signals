@@ -73,7 +73,18 @@
       font-weight:bold;
       margin-top:10px;
     }
+<div class="container">
+  <h2>Admin Panel (Only You)</h2>
 
+  <input type="text" id="pair" placeholder="Pair (BTC/USDT)">
+  <input type="text" id="type" placeholder="BUY or SELL">
+  <input type="number" id="entry" placeholder="Entry">
+  <input type="number" id="sl" placeholder="Stop Loss">
+  <input type="number" id="target" placeholder="Target">
+
+  <button onclick="addSignal()">Add Signal</button>
+</div>
+    
     footer{
       text-align:center;
       padding:20px;
@@ -159,6 +170,28 @@ async function getCryptoPrice() {
 getCryptoPrice();
 setInterval(getCryptoPrice, 15000);
 </script>
+<script>
 
+function addSignal(){
+  let pair = document.getElementById("pair").value;
+  let type = document.getElementById("type").value.toUpperCase();
+  let entry = document.getElementById("entry").value;
+  let sl = document.getElementById("sl").value;
+  let target = document.getElementById("target").value;
+
+  let signalHTML = `
+    <div class="card ${type === 'BUY' ? 'buy' : 'sell'}">
+      <h3>${pair} - ${type}</h3>
+      <p>Entry: ${entry}</p>
+      <p>Stop Loss: ${sl}</p>
+      <p>Target: ${target}</p>
+    </div>
+  `;
+
+  document.querySelector(".grid:last-of-type").innerHTML += signalHTML;
+
+}
+</script>
+  
 </body>
 </html>
