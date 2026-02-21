@@ -24,3 +24,33 @@
 
 </body>
 </html>
+<hr>
+
+<h2>🔒 Premium Signals</h2>
+
+<input type="password" id="premiumPass" placeholder="Enter Premium Password">
+<button onclick="unlockPremium()">Unlock</button>
+
+<div id="premiumContent" style="display:none; margin-top:20px;">
+
+  <div class="signal buy">
+    <h2>BNB/USDT - BUY (Premium)</h2>
+    <p>Entry: 300</p>
+    <p>Stop Loss: 290</p>
+    <p>Target: 330</p>
+  </div>
+
+</div>
+
+<script>
+function unlockPremium() {
+  var pass = document.getElementById("premiumPass").value;
+  
+  if(pass === "ravi123") {
+    document.getElementById("premiumContent").style.display = "block";
+    alert("Premium Unlocked!");
+  } else {
+    alert("Wrong Password!");
+  }
+}
+</script>
